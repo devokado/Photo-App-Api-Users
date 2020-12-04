@@ -27,12 +27,12 @@ public class CreateUserRequestModelTest {
     private static Validator validator;
 
     @Test
-    @DisplayName("Test Create new user with firstName equals to Null - POST /users-ws/users")
-    public void whenFirstNameIsNull_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test firstName Equals to Null")
+    public void whenFirstNameIsNull_thenReturnErrorMessage() {
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel(null, "Tajfar", "khatere@gmail.com", "12345678");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -40,12 +40,11 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with lastName equals to Null - POST /users-ws/users")
-    public void whenLastNameIsNull_thenReturnErrorMessage() throws Exception {
-
+    @DisplayName("Test lastName Equals to Null")
+    public void whenLastNameIsNull_thenReturnErrorMessage() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", null, "khatere@gmail.com", "12345678");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -53,13 +52,13 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with email equals to Null - POST /users-ws/users")
-    public void whenEmailIsNull_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test email Equals to Null")
+    public void whenEmailIsNull_thenReturnErrorMessage() {
 
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", "Tajfar", null, "12345678");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -67,13 +66,13 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with password equals to Null - POST /users-ws/users")
-    public void whenPasswordIsNull_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test password Equals to Null")
+    public void whenPasswordIsNull_thenReturnErrorMessage() {
 
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", "Tajfar", "khatereh@gmail.com", null);
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -81,13 +80,13 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with firstName Less than 2 characters - POST /users-ws/users")
-    public void whenFirstNameIsLessThan2Chars_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test firstName Less than 2 characters ")
+    public void whenFirstNameIsLessThan2Chars_thenReturnErrorMessage() {
 
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("K", "Tajfar", "khatereh@gmail.com", "12345678");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -95,12 +94,12 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with lastName Less than 2 characters  - POST /users-ws/users")
-    public void whenLastNameIsLessThan2Chars_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test lastName Less than 2 characters")
+    public void whenLastNameIsLessThan2Chars_thenReturnErrorMessage() {
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", "T", "khatereh@gmail.com", "12345678");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -108,12 +107,12 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with an Invalid email address  - POST /users-ws/users")
-    public void whenEmailIsNotValid_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test Invalid email address")
+    public void whenEmailIsNotValid_thenReturnErrorMessage() {
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", "Tajfar", "khatereh", "12345678");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -121,12 +120,12 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with password Less than 8 characters  - POST /users-ws/users")
-    public void whenPasswordIsLessThan8Chars_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test password Less than 8 characters")
+    public void whenPasswordIsLessThan8Chars_thenReturnErrorMessage() {
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", "Tajfar", "khatereh@gmail.com", "123456");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
@@ -134,12 +133,12 @@ public class CreateUserRequestModelTest {
     }
 
     @Test
-    @DisplayName("Test Create new user with password greater than 16 characters  - POST /users-ws/users")
-    public void whenPasswordIsGreaterThan16Chars_thenReturnErrorMessage() throws Exception {
+    @DisplayName("Test password greater than 16 characters")
+    public void whenPasswordIsGreaterThan16Chars_thenReturnErrorMessage() {
 
         validator = Validation.buildDefaultValidatorFactory().getValidator();
         CreateUserRequestModel newUser = new CreateUserRequestModel("Khatereh", "Tajfar", "khatereh@gmail.com", "12345678900000000");
-        validator.validate(newUser).stream().forEach(violation -> System.out.println(violation.getMessage()));
+        validator.validate(newUser).forEach(violation -> System.out.println(violation.getMessage()));
         Set<ConstraintViolation<CreateUserRequestModel>> violations = validator.validate(newUser);
 
         assertThat(violations.size()).isEqualTo(1);
