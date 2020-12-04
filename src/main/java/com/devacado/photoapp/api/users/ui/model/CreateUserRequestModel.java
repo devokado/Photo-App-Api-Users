@@ -21,6 +21,8 @@ public class CreateUserRequestModel {
     @Size(min = 8, max = 16, message = "Password must be equal or greater than 8 characters and less than 16 characters")
     private String password;
 
+    public CreateUserRequestModel(){}
+
     public CreateUserRequestModel(@NotNull(message = "First name cannot be null") @Size(min = 2, message = "First name must not be less than 2 characters") String firstName, @NotNull(message = "Last name cannot be null") @Size(min = 2, message = "Last name must not be less than 2 characters") String lastName, @NotNull(message = "Email cannot be null") @Email String email, @NotNull(message = "Password cannot be null") @Size(min = 8, max = 16, message = "Password must be equal or greater than 8 characters and less than 16 characters") String password) {
         this.firstName = firstName;
         this.lastName = lastName;

@@ -7,6 +7,8 @@ public class CreateUserResponseModel {
     private String email;
     private String userId;
 
+    public CreateUserResponseModel(){}
+
     public CreateUserResponseModel(String firstName, String lastName, String email, String userId) {
         this.firstName = firstName;
         this.lastName = lastName;
