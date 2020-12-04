@@ -14,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.util.AssertionErrors;
 
@@ -23,6 +24,7 @@ import static org.mockito.Mockito.doReturn;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+@TestPropertySource(locations = "classpath:application_test.properties")
 public class UsersServicesTest {
 
     @Autowired
@@ -42,8 +44,7 @@ public class UsersServicesTest {
         UserDTO userDTO = modelMapper.map(mockUser, UserDTO.class);
         userDTO.setPassword("12345678");
 
-        doReturn(mockUser).when(usersRepository).save(modelMapper.map(userDTO, UserEntity.class));
-
+        doReturn(mockUser).when(usersRepository).save(any());
 
         UserDTO savedUser = usersService.createUser(userDTO);
 

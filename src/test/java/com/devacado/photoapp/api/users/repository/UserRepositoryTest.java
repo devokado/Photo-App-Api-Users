@@ -26,7 +26,7 @@ public class UserRepositoryTest {
     @BeforeEach
     public void setup() throws IOException {
         // Deserialize users from JSON file to userEntity array
-        UserEntity[] users = new ObjectMapper().readValue(DATA_JSON, UserEntity[].class);
+         UserEntity[] users = new ObjectMapper().readValue(DATA_JSON, UserEntity[].class);
 
         // Save each user to database
         Arrays.stream(users).forEach(usersRepository::save);
