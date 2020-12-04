@@ -44,7 +44,7 @@ public class UserRepositoryTest {
         // Given two users in the database
 
         // When
-        UserEntity retrievedUser = usersRepository.findByEmail("aghaei@gmail.com");
+        UserEntity retrievedUser = usersRepository.findByEmail("masoud@gmail.com");
 
         // Then
         Assertions.assertNotNull(retrievedUser, "user with email address = aghaei@gmail.com should exist");
