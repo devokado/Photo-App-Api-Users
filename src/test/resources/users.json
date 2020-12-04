@@ -1,0 +1,17 @@
+[
+  {
+    "firstName": "khatereh",
+    "lastName": "tajfar",
+    "email": "khatereh.tajfar@gmail.com",
+    "userId": "1",
+    "encryptedPassword": "12345678"
+  },
+  {
+    "firstName": "masoud",
+    "lastName": "aghaei",
+    "email": "masoud@gmail.com",
+    "userId": "2",
+    "encryptedPassword": "12345678"
+  }
+]
+
