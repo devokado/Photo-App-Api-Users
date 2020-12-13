@@ -4,6 +4,7 @@ import com.devacado.photoapp.api.users.service.UsersService;
 import com.devacado.photoapp.api.users.shared.UserDTO;
 import com.devacado.photoapp.api.users.ui.model.CreateUserRequestModel;
 import com.devacado.photoapp.api.users.ui.model.CreateUserResponseModel;
+import com.devacado.photoapp.api.users.ui.model.UserResponseModel;
 import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
@@ -46,5 +47,12 @@ public class UsersController {
         CreateUserResponseModel returnValue = modelMapper.map(createdUser, CreateUserResponseModel.class);
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
 
+    }
+
+    @GetMapping(value = "/{userId}", produces = {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<UserResponseModel> getUser(@PathVariable("userId") String userId) {
+        UserDTO userDTO = usersService.getUserByUserId(userId);
+        UserResponseModel returnValue = new ModelMapper().map(userDTO, UserResponseModel.class);
+        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }
 }

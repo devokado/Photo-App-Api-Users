@@ -1,6 +1,9 @@
 package com.devacado.photoapp.api.users.shared;
 
+import com.devacado.photoapp.api.users.ui.model.AlbumResponseModel;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDTO implements Serializable {
     private static final long serialVersionUID = 4171703756039301692L;
@@ -10,6 +13,15 @@ public class UserDTO implements Serializable {
     private String password;
     private String userId;
     private String encryptedPassword;
+    private List<AlbumResponseModel> albums;
+
+    public List<AlbumResponseModel> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<AlbumResponseModel> albums) {
+        this.albums = albums;
+    }
 
     public String getFirstName() {
         return firstName;
